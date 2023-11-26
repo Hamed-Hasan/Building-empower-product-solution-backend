@@ -1,23 +1,24 @@
 // routes/authRoutes.js
 const express = require("express");
 const router = express.Router();
+const validateRequest = require("../../middlewares/validateRequest");
+const UserValidation = require("../../Validation/userValidation");
 const authController = require("../controllers/authController");
-const validateRequest = require("../middlewares/validateRequest");
-const { UserValidation } = require("../validation/userValidation");
+const { signupZodSchema, loginZodSchema } = require("../validation/userValidation");
 
 // Routes
 
 // POST signup
 router.post(
   "/signup",
-  validateRequest(UserValidation.signupZodSchema),
+  validateRequest(signupZodSchema),
   authController.signup
 );
 
 // POST login
 router.post(
   "/login",
-  validateRequest(UserValidation.loginZodSchema),
+  validateRequest(loginZodSchema),
   authController.login
 );
 

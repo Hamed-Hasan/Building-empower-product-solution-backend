@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const itemRoutes = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./auth/routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/items', itemRoutes);
 app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
 
 // Start server
 app.listen(PORT, () => {

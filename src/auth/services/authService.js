@@ -9,9 +9,20 @@ const User = require("../../models/User");
  * @returns {Promise<Object>} - Created user object.
  */
 const createUser = async (userData) => {
+  const { email } = userData;
+
+  // Check if the user already exists
+  const existingUser = await User.findOne({ email });
+
+  if (existingUser) {
+    throw new Error('User with this email already exists');
+  }
+
+  // Create a new user if no existing user found
   const newUser = await User.create(userData);
   return newUser;
 };
+
 
 /**
  * Retrieves a user by their email.
