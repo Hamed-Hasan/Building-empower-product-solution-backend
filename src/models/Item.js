@@ -1,6 +1,8 @@
-
 const mongoose = require('mongoose');
 
+/**
+ * Item Schema for MongoDB.
+ */
 const ItemSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -14,8 +16,11 @@ const ItemSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-  });
-  
-  const Item = mongoose.model('Item', ItemSchema);
-  
-  module.exports = Item;
+});
+
+/**
+ * MongoDB model for items.
+ */
+const Item = mongoose.model('Item', ItemSchema);
+
+module.exports = Item;

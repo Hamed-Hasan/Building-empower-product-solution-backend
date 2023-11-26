@@ -1,6 +1,9 @@
 const Item = require("../models/Item");
 
-// Get all items from the database
+/**
+ * Get all items from the database.
+ * @returns {Promise<Array>} - Array of items.
+ */
 const getAllItems = async () => {
   try {
     const items = await Item.find();
@@ -10,7 +13,11 @@ const getAllItems = async () => {
   }
 };
 
-// Create a new item in the database
+/**
+ * Create a new item in the database.
+ * @param {Object} itemData - Data for creating a new item.
+ * @returns {Promise<Object>} - Created item.
+ */
 const createItem = async (itemData) => {
   try {
     const newItem = await Item.create(itemData);
@@ -20,7 +27,11 @@ const createItem = async (itemData) => {
   }
 };
 
-// Get a specific item by ID
+/**
+ * Get a specific item by ID.
+ * @param {string} itemId - ID of the item to retrieve.
+ * @returns {Promise<Object>} - Retrieved item.
+ */
 const getItemById = async (itemId) => {
   try {
     const item = await Item.findById(itemId);
@@ -33,7 +44,12 @@ const getItemById = async (itemId) => {
   }
 };
 
-// Update an item by ID
+/**
+ * Update an item by ID.
+ * @param {string} itemId - ID of the item to update.
+ * @param {Object} itemData - Data for updating the item.
+ * @returns {Promise<Object>} - Updated item.
+ */
 const updateItem = async (itemId, itemData) => {
   try {
     const updatedItem = await Item.findByIdAndUpdate(itemId, itemData, { new: true });
@@ -46,7 +62,11 @@ const updateItem = async (itemId, itemData) => {
   }
 };
 
-// Delete an item by ID
+/**
+ * Delete an item by ID.
+ * @param {string} itemId - ID of the item to delete.
+ * @returns {Promise<Object>} - Deleted item.
+ */
 const deleteItem = async (itemId) => {
   try {
     const deletedItem = await Item.findByIdAndDelete(itemId);

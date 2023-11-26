@@ -16,6 +16,11 @@ mongoose.connect(process.env.MONGODB_URL, {
 // Middleware
 app.use(express.json());
 
+/**
+ * Route to welcome message.
+ * @route GET /
+ * @returns {string} - Welcome message.
+ */
 app.get('/', (req, res) => {
     res.send('Welcome to the Shopping Cart API!');
   });

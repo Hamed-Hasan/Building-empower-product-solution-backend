@@ -1,5 +1,8 @@
 const { z } = require('zod');
 
+/**
+ * Zod schema for validating user creation.
+ */
 const createUserZodSchema = z.object({
   body: z.object({
     name: z.string({
@@ -16,6 +19,9 @@ const createUserZodSchema = z.object({
   }),
 });
 
+/**
+ * Zod schema for validating user update.
+ */
 const updateUserZodSchema = z.object({
   body: z.object({
     name: z.string().optional(),

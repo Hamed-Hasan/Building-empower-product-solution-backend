@@ -1,6 +1,11 @@
 const { z } = require('zod');
 const { NextFunction, Request, Response } = require('express');
 
+/**
+ * Middleware for validating incoming requests against a specified schema.
+ * @param {Object} schema - Zod schema for validation.
+ * @returns {Function} - Express middleware function.
+ */
 const validateRequest = (schema) => async (req, res, next) => {
   try {
     await schema.parseAsync({
