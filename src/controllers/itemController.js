@@ -10,9 +10,9 @@ const getAllItems = async (req, res) => {
   try {
     const items = await itemService.getAllItems();
     res.status(200).json({
+      message: 'Items retrieved successfully',
       status: 'success',
       data: items,
-      message: 'Items retrieved successfully',
     });
   } catch (error) {
     res.status(500).json({ status: 'error', error: 'Internal Server Error' });
@@ -29,9 +29,9 @@ const createItem = async (req, res) => {
   try {
     const newItem = await itemService.createItem(req.body);
     res.status(201).json({
+      message: 'Item created successfully',
       status: 'success',
       data: newItem,
-      message: 'Item created successfully',
     });
   } catch (error) {
     res.status(500).json({ status: 'error', error: 'Internal Server Error' });
@@ -48,9 +48,9 @@ const getItemById = async (req, res) => {
   try {
     const item = await itemService.getItemById(req.params.itemId);
     res.status(200).json({
+      message: 'Item retrieved successfully',
       status: 'success',
       data: item,
-      message: 'Item retrieved successfully',
     });
   } catch (error) {
     res.status(500).json({ status: 'error', error: 'Internal Server Error' });
@@ -68,9 +68,9 @@ const updateItem = async (req, res) => {
   try {
     const updatedItem = await itemService.updateItem(req.params.itemId, req.body);
     res.status(200).json({
+      message: 'Item updated successfully',
       status: 'success',
       data: updatedItem,
-      message: 'Item updated successfully',
     });
   } catch (error) {
     res.status(500).json({ status: 'error', error: 'Internal Server Error' });
@@ -87,8 +87,8 @@ const deleteItem = async (req, res) => {
   try {
     await itemService.deleteItem(req.params.itemId);
     res.status(200).json({
-      status: 'success',
       message: 'Item deleted successfully',
+      status: 'success',
     });
   } catch (error) {
     res.status(500).json({ status: 'error', error: 'Internal Server Error' });

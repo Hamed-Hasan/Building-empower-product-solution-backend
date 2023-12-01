@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); 
 require('dotenv').config();
 const itemRoutes = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 
 // Middleware
 app.use(express.json());
+app.use(cors());  // Enable CORS for all routes
 
 /**
  * Route to welcome message.
@@ -23,8 +25,8 @@ app.use(express.json());
  * @returns {string} - Welcome message.
  */
 app.get('/', (req, res) => {
-    res.send('Welcome to the Shopping Cart API!');
-  });
+  res.send('Welcome to the Shopping Cart API!');
+});
 
 // Routes
 app.use('/items', itemRoutes);

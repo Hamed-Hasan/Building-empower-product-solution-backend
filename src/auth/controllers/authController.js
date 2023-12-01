@@ -18,7 +18,7 @@ const signup = async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: hashedPassword,
-        created_by: "system",
+        created_by: "super admin",
       });
   
       res.status(201).json({
