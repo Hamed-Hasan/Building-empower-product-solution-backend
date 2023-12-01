@@ -10,6 +10,9 @@ Welcome to the Arraytics Product Solution Backend! This project serves as the ba
 
 **View the live site backend [here](https://arraytics-product-solution-backend.vercel.app).**
 
+**View the API documentation on Postman [here](https://documenter.getpostman.com/view/20661145/2s9YeK3pUn).**
+
+
 ## Arraytics Product Solution Management System 🚀
 
 
